@@ -1,0 +1,4 @@
+[submodule "site/public"]
+	path = site/public
+	url = https://github.com/BenjaminRichardson/BenjaminRichardson.github.io.git
+	branch = master
