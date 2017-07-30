@@ -1,5 +1,5 @@
 /*
- * Overrides the default boostrap 
+ * Overrides the default boostrap and custom CSS for the site
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -1251,11 +1251,11 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 98px;
+  font-size: 48px;
 }
 h2,
 .h2 {
-  font-size: 70px;
+  font-size: 56px;
 }
 h3,
 .h3 {
@@ -5125,8 +5125,9 @@ a.thumbnail.active {
 }
 .progress.active .progress-bar,
 .progress-bar.active {
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
   -o-animation: progress-bar-stripes 2s linear infinite;
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite;
 }
 .progress-bar-success {
@@ -6476,7 +6477,8 @@ button.close {
 .modal-footer:after {
   clear: both;
 }
-.center-block {
+.center-block,
+.contact-form form * {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -6719,23 +6721,147 @@ button.close {
     display: none !important;
   }
 }
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+}
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 1px;
+  background-color: #85D17B;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.timeline > li {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  position: relative;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li > .timeline-panel {
+  width: 41%;
+  float: left;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+}
+.timeline > li > .timeline-panel li {
+  margin-bottom: 15px;
+}
+.timeline > li > .timeline-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -20%;
+  display: inline-block;
+  height: 1px;
+  width: 20%;
+  content: " ";
+  background-color: white;
+}
+.timeline > li > .timeline-badge {
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  line-height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  margin-left: -50px;
+  background-color: white;
+  background-size: contain;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-color: #85D17B;
+  border-width: 2px;
+  border-style: solid;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  left: -20%;
+  right: auto;
+}
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+.timeline-body > p,
+.timeline-body > ul {
+  margin-bottom: 0;
+}
+.timeline-body > p + p {
+  margin-top: 5px;
+}
+@media (max-width: 950px) {
+  ul.timeline:before {
+    left: 40px;
+  }
+  ul.timeline > li .timeline-panel {
+    /* WORKAROUND: https://github.com/leafo/lessphp/issues/326#issuecomment-26809473 */
+    width: calc(100% -  90px);
+    width: -moz-calc(100% -  90px);
+    width: -webkit-calc(100% -  90px);
+    float: right;
+  }
+  ul.timeline > li .timeline-panel:after {
+    display: none;
+  }
+  ul.timeline > li .timeline-badge {
+    left: -15px;
+    margin-left: 0;
+    top: 16px;
+  }
+}
 html,
 body {
   height: 100%;
   background-image: url(/img/ep_naturalblack.png);
+  background-color: #FFF;
+  font-size: 17px;
 }
 .section {
   top: 0;
   left: 0;
-  margin-top: 200px;
-}
-.container-fluid #landing {
   margin-top: 100px;
 }
+.jumbotron {
+  background-color: inherit;
+  text-align: center;
+}
+.container-fluid #landing {
+  margin-top: 75px;
+}
 .card,
+.card-half,
 .primary-card,
 .secondary-card {
-  margin-top: 5vh;
+  margin-top: 2vh;
   height: 80vh;
   min-height: 470px;
   border-style: solid;
@@ -6743,8 +6869,23 @@ body {
   border-width: 2px;
   border-radius: 15px;
 }
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.social-icons {
+  margin-top: 15px;
+}
+.social-icons a img {
+  height: 60px;
+}
+.card-half {
+  height: 40vh;
+  min-height: 40vh;
+}
 .card-little {
-  margin-top: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   border-style: solid;
   border-color: #DFF8EB;
   border-width: 2px;
@@ -6752,31 +6893,218 @@ body {
 }
 .primary-card {
   border-color: #85D17B;
-  padding-top: 28vh;
+  padding-top: 33vh;
 }
 .primary-card div {
-  margin-left: 10vw;
-  margin-right: 12vw;
-  letter-spacing: 15px;
-  border-bottom: #9472B2;
+  margin-left: 7vw;
+  margin-right: 7vw;
+}
+.primary-card div h1 {
+  letter-spacing: 5px;
+  border-width: 2px;
+  padding-bottom: 5px;
+  border-color: #9472B2;
   border-bottom-style: solid;
 }
+.primary-card div h1 span.text {
+  opacity: 0;
+  -o-animation: text-appear 0.5s ease 1 3s normal forwards;
+  -webkit-animation: text-appear 0.5s ease 1 3s normal forwards;
+  -moz-animation: text-appear 0.5s ease 1 3s normal forwards;
+  animation: text-appear 0.5s ease 1 3s normal forwards;
+}
+@-moz-keyframes text-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes text-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes text-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.primary-card div h1 span.left-brace {
+  position: relative;
+  left: 40%;
+  -o-animation: brace-left 1s ease 1 1.5s normal forwards;
+  -webkit-animation: brace-left 1s ease 1 1.5s normal forwards;
+  -moz-animation: brace-left 1s ease 1 1.5s normal forwards;
+  animation: brace-left 1s ease 1 1.5s normal forwards;
+}
+@-moz-keyframes brace-left {
+  0% {
+    left: 40%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes brace-left {
+  0% {
+    left: 40%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes brace-left {
+  0% {
+    left: 40%;
+  }
+  100% {
+    left: 0;
+  }
+}
+.primary-card div h1 span.right-brace {
+  position: relative;
+  right: 40%;
+  -o-animation: brace-right 1s ease 1 1.5s normal forwards;
+  -webkit-animation: brace-right 1s ease 1 1.5s normal forwards;
+  -moz-animation: brace-right 1s ease 1 1.5s normal forwards;
+  animation: brace-right 1s ease 1 1.5s normal forwards;
+}
+@-moz-keyframes brace-right {
+  0% {
+    right: 40%;
+  }
+  100% {
+    right: 0%;
+  }
+}
+@-webkit-keyframes brace-right {
+  0% {
+    right: 40%;
+  }
+  100% {
+    right: 0%;
+  }
+}
+@keyframes brace-right {
+  0% {
+    right: 40%;
+  }
+  100% {
+    right: 0%;
+  }
+}
 .secondary-card {
+  min-height: auto;
   border-color: #9472B2;
   padding-top: 2vh;
-  min-height: 80vh;
+  padding-bottom: 2vh;
   height: auto;
 }
-.secondary-card .row div {
-  float: right;
+.secondary-card div.topline {
+  width: 90%;
 }
-.secondary-card .row div:nth-child(odd
-            ) {
-  float: left;
+.secondary-card h2 {
+  margin-bottom: 30px;
+  text-decoration: none !important;
+}
+.secondary-card a {
+  color: #DFF8EB;
+  background-image: none;
+}
+.secondary-card a:hover,
+.secondary-card a:active {
+  color: #85D17B;
+}
+.secondary-card a:hover,
+.secondary-card a:active,
+.secondary-card a:visited,
+.secondary-card a:focus {
+  text-decoration: none !important;
 }
 .vertical-center {
   vertical-align: middle;
 }
+.topline {
+  border-top: 1px solid #85D17B;
+  width: 30%;
+}
+.topline-alt {
+  border-top: 1px solid #85D17B;
+  width: 50%;
+}
 #contact-me {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+}
+#contact-me div.card-half {
+  height: auto;
+}
+#about-me .card {
+  height: auto;
+  min-height: auto;
+}
+#about-me .card img.me {
+  height: 150px;
+  width: 150px;
+  border-color: #85D17B;
+  border-width: 2px;
+  border-style: solid;
+}
+.company-img {
+  height: 150px;
+  padding-top: 50px;
+}
+.company-img img {
+  height: 50px;
+  width: 50px;
+}
+.contact-icon {
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.contact-form {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.contact-form form * {
+  display: block;
+}
+.contact-form form input,
+.contact-form form textarea {
+  background-color: inherit;
+  border-width: 2px;
+}
+.contact-form form textarea {
+  height: 200px;
+  width: 400px;
+}
+.contact-form form input.btn {
+  font-size: 21px;
+}
+.collapsing {
+  transition: height .5s ease;
+}
+@media (min-width: 1200px) {
+  .primary-card {
+    padding-top: 33vh;
+  }
+  .primary-card div h1 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 992px) {
+  .primary-card div h1 span.left-brace,
+  .primary-card div h1 span.right-brace {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
 }
