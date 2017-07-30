@@ -1,0 +1,8 @@
+{
+    "theme"         : "Corr",
+    "baseURL"       : "http://example.org/",
+    "languageCode"  : "en-us",
+    "title"         : "benRichardson",
+    "MetaDataFormat": "json"
+}
+

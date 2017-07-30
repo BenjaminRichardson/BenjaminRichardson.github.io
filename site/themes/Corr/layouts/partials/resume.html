@@ -1,0 +1,26 @@
+<div class="section row" id="resume">
+    <div class="secondary-card col-sm-10 col-sm-offset-1">
+        <a role="button" data-toggle="collapse" href="#resumeBody">
+            <h2 class="text-center">
+                Experience
+            </h2>
+        </a>
+        <div class="topline center-block"></div>
+        <div class="center"style="width:90%">
+            <ul  id="resumeBody" class="timeline collapse in">
+            {{- range $index, $element := (.Data.Pages.ByParam "startDate") -}}
+                {{- if (eq (mod $index 2) 1) -}}
+                    <li>
+                {{- else -}}
+                    <li class="timeline-inverted">
+                {{- end -}}
+                        <div class="timeline-badge" style="background-image:url({{.Params.companyImgUrl}})" ></div>
+                        <div class="timeline-panel">
+                            {{ .Render "summary" }}
+                        </div>
+                    </li>
+            {{- end -}}
+            </ul>
+        </div>
+    </div>
+</div>

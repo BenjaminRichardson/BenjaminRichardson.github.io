@@ -1,0 +1,7 @@
+<h4><strong>{{ .Params.CompanyName }}</strong></h4>
+<p>{{ dateFormat "January 2006" .Params.StartDate }} - {{ dateFormat "January 2006" .Params.EndDate }}</p>
+<ul>
+    {{ range .Params.moreinfo }}
+    <li>{{ . }}</li>
+    {{ end }}
+</ul>

@@ -1,0 +1,332 @@
+/*
+ * Overrides the default boostrap and custom CSS for the site
+ */
+
+// Core variables and mixins
+@import "variables.less";
+@import "BootstrapLess/mixins.less";
+
+// Reset and dependencies
+@import "BootstrapLess/normalize.less";
+@import "BootstrapLess/print.less";
+@import "BootstrapLess/glyphicons.less";
+
+// Core CSS
+@import "BootstrapLess/scaffolding.less";
+@import "BootstrapLess/type.less";
+@import "BootstrapLess/code.less";
+@import "BootstrapLess/grid.less";
+@import "BootstrapLess/buttons.less";
+
+// Components
+@import "BootstrapLess/component-animations.less";
+@import "BootstrapLess/dropdowns.less";
+@import "BootstrapLess/button-groups.less";
+@import "BootstrapLess/input-groups.less";
+@import "BootstrapLess/navs.less";
+@import "BootstrapLess/navbar.less";
+@import "BootstrapLess/labels.less";
+@import "BootstrapLess/badges.less";
+@import "BootstrapLess/jumbotron.less";
+@import "BootstrapLess/thumbnails.less";
+@import "BootstrapLess/progress-bars.less";
+@import "BootstrapLess/media.less";
+@import "BootstrapLess/list-group.less";
+@import "BootstrapLess/panels.less";
+@import "BootstrapLess/responsive-embed.less";
+
+// Components w/ JavaScript
+@import "BootstrapLess/modals.less";
+
+// Utility classes
+@import "BootstrapLess/utilities.less";
+@import "BootstrapLess/responsive-utilities.less";
+
+@import "timeline.lss";
+
+html,body{
+    height: 100%;
+    background-image: url(/img/ep_naturalblack.png);
+    background-color: #FFF;
+
+    font-size: 17px;
+}
+
+.section{
+    top: 0;
+    left: 0;
+    margin-top: @section-spacing;
+}
+
+.jumbotron{
+    background-color: inherit;
+    text-align: center;
+}
+
+.container-fluid #landing{
+    margin-top: 75px;
+}
+
+.card{
+    margin-top: 2vh;
+
+    height: @card-height; 
+    min-height: 470px;
+
+    border-style: solid;
+    border-color: @brand-white;
+    border-width: 2px;
+    border-radius: 15px;
+}
+
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.social-icons{
+    margin-top: 15px;
+    
+    a{
+        img{
+            height: 60px;
+        }
+    }
+}
+
+.card-half{
+    &:extend(.card);
+
+    height: @card-height/2;
+    min-height: @card-height/2;
+}
+
+.card-little{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    border-style: solid;
+    border-color: @brand-white;
+    border-width: 2px;
+    border-radius: 15px;
+}
+
+.primary-card{
+    &:extend(.card);
+    border-color: @brand-primary;
+
+    padding-top: 33vh;
+    div{
+        margin-left: 7vw;
+        margin-right: 7vw;
+        h1{
+            letter-spacing: 5px;
+            border-width: 2px;
+            padding-bottom: 5px;
+            border-color: @brand-secondary;
+            border-bottom-style: solid;
+
+            span.text{
+                opacity: 0;
+                .keyframes(text-appear;{
+                    0% { opacity: 0}
+                    100% { opacity: 1; }
+                });
+
+                .animation(text-appear .5s ease 1 3s normal forwards)
+            }
+
+            span.left-brace{
+
+                position: relative;
+                left: 40%;
+
+                .keyframes(brace-left;{
+                    0% { left: 40%; }
+                    100% { left: 0; }
+                });
+
+                .animation(brace-left 1s ease 1 1.5s normal forwards)
+            }
+
+            span.right-brace{
+                position: relative;
+                right: 40%;
+
+                .keyframes(brace-right;{
+                    0% { right: 40%; }
+                    100% { right: 0%; }
+                });
+
+                .animation(brace-right 1s ease 1 1.5s normal forwards )
+            }
+
+        }
+        
+    }
+}
+
+.secondary-card{
+    &:extend(.card);
+
+    min-height: auto;
+    border-color: @brand-secondary;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+
+    height: auto;
+
+    div.topline{
+        width: 90%;
+    }
+
+    h2{
+        margin-bottom: 30px;
+        text-decoration: none !important;
+    }
+
+    a{
+
+        color: @brand-white;
+        background-image: none;
+
+        &:hover,&:active{
+            color: @brand-primary
+        }
+
+        &:hover,
+        &:active,
+        &:visited,
+        &:focus{
+            text-decoration: none !important;
+        }
+    }
+
+}
+
+.vertical-center{
+    vertical-align: middle;
+}
+
+.topline{
+    border-top: 1px solid @brand-primary;
+    width: 30%
+}
+
+.topline-alt{
+    border-top: 1px solid @brand-primary;
+    width: 50%
+}
+
+#contact-me{
+    margin-bottom: @section-spacing/2;
+    div.card-half{
+        height: auto;
+    }
+}
+
+#about-me .card{
+    height: auto;
+    min-height: auto;
+
+    img.me{
+        height: 150px;
+        width: 150px;
+
+        border-color:@brand-primary;
+        border-width: 2px;
+        border-style: solid;
+    }
+}
+
+.company-img{
+    @image-dimensions: 50px;
+    height: 3*@image-dimensions;
+    padding-top: @image-dimensions;
+    img{
+        height: @image-dimensions;
+        width: @image-dimensions;
+    }
+}
+
+.contact-icon{
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.contact-form{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    form{
+        *{
+            &:extend(.center-block);
+            display: block;
+        }
+        input,textarea{
+            background-color: inherit;
+            border-width: 2px;
+        }
+        textarea{
+            height: 200px;
+            width: 400px;
+        }
+        input.btn{
+            font-size: 21px;
+        }
+    }
+}
+
+
+// Animation
+
+.keyframes(@name; @arguments) {
+    @-moz-keyframes @name { @arguments(); }
+    @-webkit-keyframes @name { @arguments(); }
+    @keyframes @name { @arguments(); }
+}
+
+.animation(@arguments) {
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    animation: @arguments;
+}
+
+
+// bootstrap animation overrides:
+.collapsing {
+    transition: height .5s ease;
+}
+
+// Responsive Overrides
+
+//Large
+@media (min-width: @screen-lg-min) {
+    .primary-card {
+        padding-top: 33vh;
+        div {
+            h1{
+                font-size: 60px;
+            }
+        }
+    }
+}
+
+//small
+@media(max-width: @screen-md-min ){
+    .primary-card{
+        div {
+            h1{
+                span.left-brace,
+                span.right-brace{
+                    // hide element visually, this is done to avoid animation restarting if window is resized
+                    position: absolute !important;
+                    top: -9999px !important;
+                    left: -9999px !important;
+                }
+            }
+        }
+    }
+}
