@@ -5,8 +5,8 @@
         "Developed real estate PHP site which mapped user inputs to PDFs. The site stored their previously created documents and included dropbox hooks.",
         "Collaborated with business owners to determine site requirements."
    ],
-   "endDate": "2015-06-01",
-   "startDate": "2014-04-01",
+   "endDate": "2015-08-01",
+   "startDate": "2014-09-01",
    "title": "HardinDesignAndDevelopment",
    "companyImgUrl": "/img/hdd.jpg"
 }

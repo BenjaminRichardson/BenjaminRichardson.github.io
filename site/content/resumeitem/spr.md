@@ -4,7 +4,7 @@
    "endDate": "2014-08-01",
    "moreinfo": [
       "Wrote test automation scripts in CodedUI",
-      "Created and Conducted instroductory course in introduce automated testing to manual test engineers"
+      "Created and Conducted instroductory course on automated testing for manual test engineers"
    ],
    "startDate": "2014-06-01",
    "title": "spr",
